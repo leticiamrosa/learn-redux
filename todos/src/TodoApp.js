@@ -1,14 +1,21 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 
 import TodoForm from "./components/TodoForm.js";
+import rootReducer from "./reducers";
+
+const store = createStore(rootReducer);
 
 export default class TodoApp extends React.Component {
   render() {
     return (
-      <View>
-        <TodoForm />
-      </View>
+      <Provider store={store}>
+        <View>
+          <TodoForm />
+        </View>
+      </Provider>
     );
   }
 }

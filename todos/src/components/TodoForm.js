@@ -12,11 +12,18 @@ export default class TodoForm extends React.Component {
         }
     }
 
+    // define o valor do estado do input
     onChangeText(text) {
         this.setState({
             text
         });
     }
+
+    // Pegar o valor do input
+    onPress(){
+        console.log(this.state.text);
+    }
+
     
     render() {
         const { text } = this.state;
@@ -31,7 +38,7 @@ export default class TodoForm extends React.Component {
                 <View style={styles.buttonContainer}>
                     <Button 
                         title='Adicionar'
-                        onPress={() => console.log('Fui Pressionado')}
+                        onPress={() => this.onPress()}
                     />
                 </View>
             </View>
