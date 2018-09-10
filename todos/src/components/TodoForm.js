@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import { connect } from 'react-redux';
+
+import { addTodo } from '../actions/index';
 
 import Input from './Input';
 
-export default class TodoForm extends React.Component {
+class TodoForm extends React.Component {
     constructor(props){
         super(props);
 
@@ -21,7 +24,9 @@ export default class TodoForm extends React.Component {
 
     // Pegar o valor do input
     onPress(){
-        console.log(this.state.text);
+        const { text } = this.state;
+        this.props.dispatchAddTodo(this.state.text);
+        // console.log(this.props.dispatchAddTodo(text))
     }
 
     
@@ -59,3 +64,17 @@ const styles = StyleSheet.create({
         marginTop: 32,
     }
 });
+
+// const mapDispatchToProps = {
+//     dispatchAddTodo: addTodo
+// }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatchAddTodo: text => dispatch(addTodo(text))
+    }
+}
+
+// currying
+// export default connect(null, mapDispatchToProps)(TodoForm);
+export default connect(null, mapDispatchToProps)(TodoForm);

@@ -1,12 +1,16 @@
-import { ADD_TODO } from '../actions';
+import ADD_TODO from '../actions/index';
+
+let nextId = 1;
 
 const todoListReducer = (state = [], action) => {
-    switch(action.type){
-        case ADD_TODO:
+    switch(action.type) {
+        case 'ADD_TODO':
+            console.log('addTodo foi chamado', action.text)
             const newTodo = {
+                id: nextId++,
                 text: action.text
             }
-            return [...state , newTodo] // une um array com o outro no ES6
+            return [...state, newTodo]
         default:
             return state;
     }
