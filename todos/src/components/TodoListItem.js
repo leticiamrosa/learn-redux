@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
-const TodoListItem = ({ todo }) => (
-    <TouchableOpacity onPress={() => {} }>
+const TodoListItem = ({ todo, onPressTodo }) => (
+    <TouchableOpacity onPress={onPressTodo}>
       <View style={styles.line}>
         {/* We can find image from device user, with comp image */}
         <Text style={styles.textPeople}>
