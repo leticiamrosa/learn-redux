@@ -65,15 +65,15 @@ const styles = StyleSheet.create({
     }
 });
 
-// const mapDispatchToProps = {
-//     dispatchAddTodo: addTodo
-// }
-
-const mapDispatchToProps = dispatch => {
-    return {
-        dispatchAddTodo: text => dispatch(addTodo(text))
-    }
+const mapDispatchToProps = {
+    dispatchAddTodo: addTodo
 }
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         dispatchAddTodo: text => dispatch(addTodo(text))
+//     }
+// }
 
 // currying
 // export default connect(null, mapDispatchToProps)(TodoForm);
