@@ -24,8 +24,10 @@ class TodoForm extends React.Component {
 
     // Pegar o valor do input
     onPress(){
-        const { text } = this.state;
+        // chama a funcao dispatch e o state;
         this.props.dispatchAddTodo(this.state.text);
+        // Limpar formulario
+        this.setState({text: ''});
         // console.log(this.props.dispatchAddTodo(text))
     }
 
